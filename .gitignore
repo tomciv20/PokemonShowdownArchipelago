@@ -1,0 +1,5 @@
+tomciv20.yaml
+tomciv20_full.yaml
+ShowdownClient.py
+PokemonShowdown/__pycache__/
+*.pyc

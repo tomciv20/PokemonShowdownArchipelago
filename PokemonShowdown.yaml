@@ -1,0 +1,210 @@
+# Q. What is this file?
+# A. This file contains options which allow you to configure your multiworld experience while allowing
+#    others to play how they want as well.
+#
+# Q. How do I use it?
+# A. The options in this file are weighted. This means the higher number you assign to a value, the
+#    more chances you have for that option to be chosen. For example, an option like this:
+#
+#    map_shuffle:
+#      on: 5
+#      off: 15
+#
+#    Means you have 5 chances for map shuffle to occur, and 15 chances for map shuffle to be turned
+#    off.
+#
+# Q. I've never seen a file like this before. What characters am I allowed to use?
+# A. This is a .yaml file. You are allowed to use most characters.
+#    To test if your yaml is valid or not, you can use this website:
+#        http://www.yamllint.com/
+#    You can also verify that your Archipelago options are valid at this site:
+#        https://archipelago.gg/check
+
+# Your name in-game, limited to 16 characters.
+# This should match your Pokémon Showdown username exactly.
+#     {player} will be replaced with the player's slot number.
+#     {PLAYER} will be replaced with the player's slot number, if that slot number is greater than 1.
+#     {number} will be replaced with the counter value of the name.
+#     {NUMBER} will be replaced with the counter value of the name, if the counter value is greater than 1.
+name: Player{number}
+
+# Used to describe your yaml. Useful if you have multiple files.
+description: Default Pokemon Showdown Template
+
+game: Pokemon Showdown
+requires:
+  version: 0.6.0 # Version of Archipelago required for this yaml to work as expected.
+
+Pokemon Showdown:
+  ################
+  # Game Options #
+  ################
+  progression_balancing:
+    # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
+    #
+    # A lower setting means more getting stuck. A higher setting means less getting stuck.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    normal: 50 # equivalent to 50
+
+  accessibility:
+    # Set rules for reachability of your items/locations.
+    #
+    # **Full:** ensure everything can be reached and acquired.
+    #
+    # **Minimal:** ensure what is needed to reach your goal can be acquired.
+    full: 50
+    minimal: 0
+
+  starting_pokemon_count:
+    # Number of Pokémon species you start the game with already unlocked.
+    # These are chosen randomly from your pool.
+    #
+    # Minimum value is 6
+    # Maximum value is 20
+    6: 50
+    random: 0
+    random-low: 0  # random value weighted towards lower values
+    random-high: 0 # random value weighted towards higher values
+
+  goal_percentage:
+    # Percentage of your Pokémon pool you need to win a battle with to complete your goal.
+    # Example: a pool of 100 Pokémon with goal 80% means you need to win with 80 unique species.
+    #
+    # Minimum value is 10
+    # Maximum value is 100
+    80: 50
+    random: 0
+    random-low: 0  # random value weighted towards lower values
+    random-high: 0 # random value weighted towards higher values
+
+  pool_size:
+    # How many Pokémon species are included in your pool.
+    # The pool is drawn randomly from all enabled groups.
+    # Enabling natures or popular items does not reduce your species count — those bonus items
+    # fill filler slots first, and overflow into extra achievement locations.
+    #
+    # Minimum value is 40
+    # Maximum value is 450
+    150: 50
+    random: 0
+    random-low: 0  # random value weighted towards lower values
+    random-high: 0 # random value weighted towards higher values
+
+  pool_source:
+    # Which Pokémon to draw from for your species pool.
+    #
+    # gen9_ou:           Gen 9 OU-legal fully evolved Pokémon (Paldea dex, not Uber/AG).
+    #                    Legendaries and mythicals controlled by the options below.
+    # pokemon_champions: Pokémon Champions Regulation M-A + M-B legal species.
+    #                    Includes cross-generation Pokémon for use in Champions formats.
+    # both:              Combined pool from both sources (largest possible pool).
+    gen9_ou: 50
+    pokemon_champions: 0
+    both: 0
+
+  include_legendaries:
+    # Include legendary Pokémon (e.g. Raikou, Landorus, Spectrier) in the gen9_ou pool.
+    # Has no effect if pool_source is pokemon_champions.
+    'true': 50
+    'false': 0
+
+  include_mythicals:
+    # Include mythical Pokémon (e.g. Mew, Jirachi, Darkrai) in the gen9_ou pool.
+    # Has no effect if pool_source is pokemon_champions.
+    'true': 0
+    'false': 50
+
+  include_natures:
+    # Add all 25 natures as unlock items in the item pool.
+    # You start with starting_natures_count natures unlocked; the rest must be received.
+    # Honor system: only use natures you have unlocked on Pokemon you bring to battle.
+    #
+    # How overflow works: natures (and popular items below) first replace filler slots in your
+    # item pool. If there are more bonus items than filler slots, extra achievement-style goals
+    # are added as new locations — things like "Win 10 battles", "One-hit KO a Pokemon", or
+    # "Win a battle using Stealth Rock". These are chosen randomly each seed from a pool of 43
+    # possible achievements and are tracked automatically by the client when you submit replays.
+    'true': 0
+    'false': 50
+
+  starting_natures_count:
+    # How many natures you start with already unlocked (only applies if include_natures is on).
+    # The remaining natures enter the item pool and must be received from the multiworld.
+    #
+    # Minimum value is 1
+    # Maximum value is 5
+    1: 50
+    random: 0
+    random-low: 0  # random value weighted towards lower values
+    random-high: 0 # random value weighted towards higher values
+
+  include_popular_items:
+    # Add 15 popular competitive items as unlock items (Air Balloon, Assault Vest, Choice Band,
+    # Choice Scarf, Choice Specs, Expert Belt, Focus Sash, Heavy-Duty Boots, Leftovers,
+    # Life Orb, Loaded Dice, Mental Herb, Power Herb, Rocky Helmet, Salac Berry).
+    # Honor system: only use items you have unlocked in your battles.
+    #
+    # Like natures, these fill filler slots first. Any that overflow create additional achievement
+    # locations in your world. Use /achievements in the client to see your active goals.
+    'true': 0
+    'false': 50
+
+  require_send_out:
+    # If enabled, a Pokémon must have been switched into battle to count as a check.
+    # Pokémon that were on your team sheet but never sent out are skipped.
+    # The client detects this from switch lines in the replay log automatically.
+    'true': 0
+    'false': 50
+
+  require_kill:
+    # If enabled, you must get at least one KO with a Pokémon in the battle
+    # for it to count as a valid check — winning alone is not enough.
+    # The client detects KOs from the replay log automatically.
+    'true': 0
+    'false': 50
+
+  ###########################
+  # Item & Location Options #
+  ###########################
+  local_items:
+    # Forces these items to be in their native world.
+    []
+
+  non_local_items:
+    # Forces these items to be outside their native world.
+    []
+
+  start_inventory:
+    # Start with the specified amount of these items. Example: "Unlock Garchomp: 1"
+    {}
+
+  start_inventory_from_pool:
+    # Start with the specified amount of these items and don't place them in the world.
+    # Example: "Unlock Garchomp: 1"
+    #
+    # The game decides what the replacement items will be.
+    {}
+
+  start_hints:
+    # Start with these item's locations prefilled into the !hint command.
+    []
+
+  start_location_hints:
+    # Start with these locations and their item prefilled into the !hint command.
+    []
+
+  exclude_locations:
+    # Prevent these locations from having an important item.
+    # Example: "Win with Shedinja"
+    []
+
+  priority_locations:
+    # Prevent these locations from having an unimportant item.
+    []
+
+  item_links:
+    # Share part of your item pool with other players.
+    []
