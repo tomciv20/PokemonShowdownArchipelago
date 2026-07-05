@@ -152,6 +152,16 @@ class ShowdownCommandProcessor(ClientCommandProcessor):
         else:
             self.output("All items unlocked!")
 
+    def _cmd_showdown_name(self, name: str = "") -> None:
+        """Set your Showdown username if it differs from your AP slot name. Usage: /showdown_name YourName"""
+        name = name.strip()
+        if name:
+            self.ctx.showdown_name = name
+            self.output(f"Showdown username set to: {name}")
+        else:
+            current = self.ctx.showdown_name or "(using AP slot name)"
+            self.output(f"Current Showdown username override: {current}")
+
     def _cmd_progress(self) -> None:
         """Show win progress toward goal."""
         ctx = self.ctx
@@ -185,6 +195,7 @@ class ShowdownContext(CommonContext):
         self.unlocked_natures: set = set()
         self.unlocked_items: set = set()
         self.won: set = set()
+        self.showdown_name: str | None = None
         self.goal_count: int = 0
         self.goal_sent: bool = False
         self.require_send_out: bool = False
@@ -414,7 +425,7 @@ class ShowdownContext(CommonContext):
     def _parse_replay(self, data: dict) -> dict:
         log = data.get("log", "")
         lines = log.split("\n")
-        my_name = (self.auth or "").strip().lower()
+        my_name = (self.showdown_name or self.auth or "").strip().lower()
 
         p1, p2 = None, None
         for line in lines:
