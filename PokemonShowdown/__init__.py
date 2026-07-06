@@ -167,7 +167,8 @@ class ShowdownWorld(World):
         menu.connect(main)
 
     def set_rules(self) -> None:
-        # No per-location server-side rules — the client enforces legality.
+        from .rules import set_rules as apply_rules
+        apply_rules(self, self.species_pool)
         goal_pct = max(1, round(len(self.species_pool) * self.options.goal_percentage.value / 100))
         goal_count = min(goal_pct, self.species_item_count)
         self.multiworld.completion_condition[self.player] = lambda state: sum(
