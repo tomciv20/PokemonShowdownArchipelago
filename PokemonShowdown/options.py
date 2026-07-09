@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from Options import Choice, Range, Toggle, PerGameCommonOptions
+from Options import Range, Toggle, PerGameCommonOptions
 
 
 class StartingPokemonCount(Range):
@@ -19,36 +19,53 @@ class GoalPercentage(Range):
 
 
 class PoolSize(Range):
-    """How many Pokémon species are in your pool.
-    The actual cap depends on which pools are enabled."""
+    """How many Pokémon species are in your pool (randomly sampled from enabled tiers)."""
     display_name = "Pool Size"
-    range_start = 40
+    range_start = 10
     range_end = 450
-    default = 150
+    default = 50
 
 
-class PoolSource(Choice):
-    """Which Pokémon to draw from for your species pool.
-    gen9_ou: Gen 9 OU-legal fully evolved Pokémon (Paldea dex, not Uber/AG).
-    pokemon_champions: Pokémon Champions Regulation M-A + M-B legal species.
-    both: Combined pool from both sources."""
-    display_name = "Pool Source"
-    option_gen9_ou = 0
-    option_pokemon_champions = 1
-    option_both = 2
+class IncludeOU(Toggle):
+    """Include Gen 9 OU-tier Pokémon in the pool."""
+    display_name = "Include OU"
+    default = 1
+
+
+class IncludeUU(Toggle):
+    """Include Gen 9 UU-tier Pokémon in the pool."""
+    display_name = "Include UU"
+    default = 0
+
+
+class IncludeRU(Toggle):
+    """Include Gen 9 RU-tier Pokémon in the pool."""
+    display_name = "Include RU"
+    default = 0
+
+
+class IncludeNU(Toggle):
+    """Include Gen 9 NU-tier Pokémon in the pool."""
+    display_name = "Include NU"
+    default = 0
+
+
+class IncludePU(Toggle):
+    """Include Gen 9 PU-tier Pokémon in the pool."""
+    display_name = "Include PU"
+    default = 0
+
+
+class IncludeChampions(Toggle):
+    """Include Pokémon Champions Regulation M-A/M-B legal species in the pool."""
+    display_name = "Include Champions"
     default = 0
 
 
 class IncludeLegendaries(Toggle):
-    """Include legendary Pokémon (applies to gen9_ou and both pool sources)."""
+    """Include legendary and mythical Pokémon from the enabled tiers."""
     display_name = "Include Legendaries"
     default = 1
-
-
-class IncludeMythicals(Toggle):
-    """Include mythical Pokémon (applies to gen9_ou and both pool sources)."""
-    display_name = "Include Mythicals"
-    default = 0
 
 
 class IncludeNatures(Toggle):
@@ -72,13 +89,13 @@ class IncludePopularItems(Toggle):
 
 
 class RequireSendOut(Toggle):
-    """If enabled, a Pokémon must have been switched into battle to count as a check — being on the team sheet is not enough."""
+    """If enabled, a Pokémon must have been switched into battle to count as a check."""
     display_name = "Require Send Out"
     default = 0
 
 
 class RequireKill(Toggle):
-    """If enabled, you must also get at least one KO with a Pokémon to check it off, not just win with it on your team."""
+    """If enabled, you must get at least one KO with a Pokémon to check it off."""
     display_name = "Require Kill"
     default = 0
 
@@ -88,9 +105,13 @@ class ShowdownOptions(PerGameCommonOptions):
     starting_pokemon_count: StartingPokemonCount
     goal_percentage: GoalPercentage
     pool_size: PoolSize
-    pool_source: PoolSource
+    include_ou: IncludeOU
+    include_uu: IncludeUU
+    include_ru: IncludeRU
+    include_nu: IncludeNU
+    include_pu: IncludePU
+    include_champions: IncludeChampions
     include_legendaries: IncludeLegendaries
-    include_mythicals: IncludeMythicals
     include_natures: IncludeNatures
     starting_natures_count: StartingNaturesCount
     include_popular_items: IncludePopularItems

@@ -1,97 +1,92 @@
-# Gen 9 OU-legal fully evolved Pokémon (Paldea Dex, not Uber/AG, fully evolved, non-baby)
+# Smogon Gen 9 SV competitive tiers - July 2026
+# Fully evolved (or competitively used) Pokemon only.
+# Names: lowercase, hyphens for spaces. Formes kept where competitively distinct.
+# NFE excluded except competitively-used ones (chansey, porygon2, scyther).
 
-STANDARD_POKEMON = [
-    # Gen 2 (Paldea-legal)
-    "meganium", "typhlosion", "feraligatr", "ampharos", "azumarill", "sudowoodo",
-    "politoed", "jumpluff", "amoonguss", "sunflora", "quagsire", "espeon",
-    "umbreon", "forretress", "granbull", "scizor", "heracross", "ursaring",
-    "corsola", "delibird", "mantine", "skarmory", "houndoom",
-    "kingdra", "donphan", "porygon2", "stantler", "smeargle", "miltank",
-    # Gen 3 (Paldea-legal)
-    "sceptile", "blaziken", "swampert", "gardevoir", "breloom", "slaking",
-    "ninjask", "shedinja", "hariyama", "delcatty", "sableye", "mawile",
-    "aggron", "medicham", "manectric", "wailord", "torkoal", "flygon",
-    "cacturne", "altaria", "zangoose", "seviper", "lunatone", "solrock",
-    "whiscash", "crawdaunt", "claydol", "milotic", "castform", "banette",
-    "dusclops", "tropius", "absol", "glalie", "salamence", "metagross",
-    # Gen 4 (Paldea-legal)
-    "infernape", "empoleon", "staraptor", "bibarel", "kricketune", "luxray",
-    "roserade", "rampardos", "bastiodon", "mothim", "vespiquen", "floatzel",
-    "ambipom", "drifblim", "lopunny", "mismagius", "honchkrow",
-    "purugly", "gastrodon", "drapion", "toxicroak", "lumineon", "garchomp",
-    "lucario", "hippowdon", "dusknoir", "froslass", "porygon-z", "gallade",
-    "probopass",
-    # Gen 5 (Paldea-legal)
-    "serperior", "emboar", "samurott", "watchog", "stoutland", "liepard",
-    "simisage", "simisear", "simipour", "musharna", "unfezant",
-    "swoobat", "audino", "conkeldurr", "seismitoad",
-    "throh", "sawk", "leavanny", "scolipede", "whimsicott", "lilligant",
-    "krookodile", "darmanitan", "maractus", "crustle", "scrafty", "sigilyph",
-    "cofagrigus", "carracosta", "archeops", "garbodor", "zoroark", "cinccino",
-    "gothitelle", "reuniclus", "swanna", "vanilluxe", "sawsbuck", "emolga",
-    "escavalier", "accelgor", "stunfisk", "mienshao", "druddigon", "golurk",
-    "bisharp", "bouffalant", "braviary", "mandibuzz", "heatmor", "durant",
-    "hydreigon", "volcarona",
-    # Gen 6 (Paldea-legal)
-    "chesnaught", "delphox", "greninja", "diggersby",
-    "talonflame", "vivillon", "pyroar", "florges", "gogoat", "pangoro",
-    "furfrou", "aromatisse", "slurpuff", "malamar", "barbaracle", "dragalge",
-    "clawitzer", "heliolisk", "tyrantrum", "aurorus", "sylveon", "hawlucha",
-    "dedenne", "carbink", "goodra", "klefki", "trevenant",
-    "gourgeist", "avalugg", "noivern",
-    # Gen 7 (Paldea-legal)
-    "decidueye", "incineroar", "primarina",
-    "toucannon", "vikavolt", "crabominable", "oricorio", "ribombee", "lycanroc",
-    "wishiwashi", "lurantis", "shiinotic", "salazzle", "bewear", "tsareena",
-    "comfey", "oranguru", "passimian", "palossand", "pyukumuku", "togedemaru",
-    "mimikyu", "bruxish", "drampa", "dhelmise", "kommo-o",
-    # Gen 8 (Paldea-legal)
-    "rillaboom", "cinderace", "inteleon", "greedent", "orbeetle", "thievul",
-    "eldegoss", "dubwool", "drednaw", "coalossal", "appletun", "sandaconda",
-    "cramorant", "barraskewda", "toxtricity", "centiskorch", "hatterene",
-    "grimmsnarl", "obstagoon", "perrserker", "cursola", "sirfetchd",
-    "mr-rime", "runerigus", "alcremie", "falinks", "pincurchin",
-    "frosmoth", "stonjourner", "eiscue", "indeedee", "morpeko",
-    "copperajah", "dracozolt", "arctozolt", "dracovish", "arctovish",
-    "dragapult",
-    # Gen 9
-    "meowscarada", "skeledirge", "quaquaval", "oinkologne", "spidops",
-    "lokix", "pawmot", "maushold", "dachsbun", "arboliva", "squawkabilly",
-    "garganacl", "armarouge", "ceruledge", "bellibolt", "kilowattrel",
-    "mabosstiff", "grafaiai", "brambleghast", "toedscruel", "scovillain",
-    "rabsca", "espathra", "tinkaton", "wugtrio", "bombirdier", "palafin",
-    "revavroom", "cyclizar", "orthworm", "glimmora", "flamigo",
-    "cetitan", "veluza", "dondozo", "tatsugiri", "annihilape",
-    "clodsire", "farigiraf", "dudunsparce", "kingambit",
-    # Gen 9 Paradox
-    "great-tusk", "scream-tail", "brute-bonnet", "flutter-mane",
-    "slither-wing", "sandy-shocks", "iron-treads", "iron-bundle",
-    "iron-hands", "iron-jugulis", "iron-moth", "iron-thorns",
-    "baxcalibur", "gholdengo", "wo-chien", "chien-pao",
-    "ting-lu", "chi-yu", "roaring-moon", "iron-valiant",
+OU_POKEMON = [
+    # Core OU
+    "great-tusk", "gholdengo", "kingambit", "zamazenta", "dragonite",
+    "iron-valiant", "kyurem", "raging-bolt", "hatterene", "ting-lu",
+    "samurott-hisui", "iron-treads", "slowking-galar", "dragapult", "gliscor",
+    "corviknight", "pecharunt", "cinderace", "landorus-therian", "alomomola",
+    "glimmora", "darkrai", "iron-moth", "ceruledge", "walking-wake",
+    "deoxys-speed", "rillaboom", "zapdos", "tornadus-therian", "clefable",
+    "dondozo", "enamorus", "weezing-galar", "moltres", "garganacl",
+    "garchomp", "ogerpon", "primarina", "iron-crown",
+    # UUBL (banned from UU, OU-adjacent in power)
+    "heatran", "tyranitar",
 ]
 
-LEGENDARY_POKEMON = [
-    "articuno", "zapdos", "moltres", "raikou", "entei", "suicune",
-    "regirock", "regice", "registeel", "latias", "latios", "uxie",
-    "mesprit", "azelf", "heatran", "regigigas", "cresselia", "cobalion",
-    "terrakion", "virizion", "tornadus", "thundurus", "landorus",
-    "regieleki", "regidrago", "glastrier", "spectrier", "enamorus",
-    "walking-wake", "iron-leaves",
+UU_POKEMON = [
+    "latios", "excadrill", "mandibuzz", "lokix", "weavile", "arcanine-hisui",
+    "skarmory", "donphan", "conkeldurr", "scizor", "tinkaton",
+    "thundurus-therian", "slowking", "slither-wing", "hydrapple", "keldeo",
+    "clodsire", "skeledirge", "sinistcha", "greninja", "sandy-shocks",
+    "manaphy", "metagross", "hydreigon", "rotom-wash", "fezandipiti",
+    "toxapex", "zapdos-galar", "revavroom", "azumarill", "gardevoir",
+    "iron-jugulis", "hippowdon", "thundurus", "talonflame", "cobalion",
+    "ninetales-alola", "mamoswine", "serperior", "blissey", "bisharp",
+    "venusaur", "ninetales", "gastrodon", "mew", "forretress", "politoed",
+    "salamence", "hawlucha", "lilligant-hisui", "volcanion", "magnezone",
+    "mimikyu", "zoroark-hisui", "araquanid", "torkoal", "jirachi",
+    "haxorus", "krookodile", "goodra-hisui", "yanmega", "ribombee",
+    "houndstone", "armarouge", "gengar", "swampert", "kilowattrel",
+    "barraskewda", "kleavor", "gyarados", "grimmsnarl", "entei",
+    "maushold", "kingdra", "scream-tail", "comfey", "basculegion-f",
+    "indeedee", "regieleki", "enamorus-therian", "muk-alola", "iron-leaves",
+    "noivern", "floatzel", "toxtricity", "scovillain", "pawmot",
+    "blastoise", "ditto", "cresselia", "mienshao", "necrozma", "sylveon",
+    "gallade", "empoleon", "basculegion", "overqwil", "tentacruel",
+    "crawdaunt", "quagsire", "lycanroc-dusk", "espeon", "umbreon",
+    "cyclizar", "cloyster", "porygon-z", "chesnaught", "infernape",
+    "reuniclus", "chandelure", "azelf", "avalugg", "regidrago",
+    "incineroar", "slowbro", "lucario", "slowbro-galar", "oricorio-pom-pom",
+    "breloom", "raikou", "diancie", "vaporeon", "porygon2", "tornadus",
+    "tauros-paldea-aqua", "vikavolt", "feraligatr", "rhyperior",
+    "iron-thorns", "terrakion", "snorlax", "suicune", "golurk",
+    "klefki", "charizard", "brambleghast", "toxicroak", "tsareena",
+    "galvantula", "vileplume", "whimsicott", "torterra", "rotom-heat",
+    "staraptor", "typhlosion-hisui", "glastrier", "scrafty", "inteleon",
+    "salazzle", "milotic", "chansey", "heracross", "bruxish", "amoonguss",
+    "registeel", "hoopa", "sableye", "frosmoth", "goodra", "arcanine",
+    "jolteon", "florges", "bellibolt", "emboar", "flygon", "ambipom",
+    "drifblim", "hitmonlee", "hitmontop", "hitmonchan",
 ]
 
-MYTHICAL_POKEMON = [
-    "mew", "celebi", "jirachi", "phione", "manaphy", "darkrai",
-    "shaymin", "arceus", "victini", "keldeo", "meloetta", "genesect",
-    "diancie", "hoopa", "volcanion", "magearna", "marshadow", "zeraora",
-    "meltan", "melmetal", "zarude", "calyrex",
+RU_POKEMON = [
+    "flamigo", "cinccino", "altaria", "decidueye-hisui", "scyther",
+    "ludicolo", "bronzong", "sandslash-alola", "decidueye", "zoroark",
+    "lycanroc", "munkidori", "lapras", "palossand", "toedscruel",
+    "duraludon", "sandaconda", "drednaw", "sceptile", "froslass",
+    "braviary", "pincurchin", "articuno-galar", "poliwrath", "dragalge",
+    "brute-bonnet", "tauros-paldea-blaze", "delphox", "mismagius",
+    "raichu-alola", "sandslash", "dudunsparce", "golduck",
+    "exeggutor-alola", "alcremie", "honchkrow", "cramorant", "hariyama",
+    "oricorio", "shiftry", "mudsdale", "arboliva", "virizion", "qwilfish",
+    "medicham", "minior", "avalugg-hisui", "meloetta", "leafeon",
+    "uxie", "tatsugiri", "dusknoir", "bastiodon", "trevenant",
+    "toucannon", "shaymin",
 ]
 
-ALL_POKEMON = STANDARD_POKEMON + LEGENDARY_POKEMON + MYTHICAL_POKEMON
+NU_POKEMON = [
+    "copperajah", "orthworm", "farigiraf", "skuntank", "coalossal",
+    "perrserker", "muk", "veluza", "rotom-fan", "rabsca",
+    "morpeko", "komala", "beartic", "mabosstiff", "crabominable",
+    "venomoth", "bombirdier", "persian-alola", "lurantis", "qwilfish-hisui",
+    "falinks", "cacturne", "greedent", "ursaring", "klawf",
+    "malamar", "passimian", "appletun", "flapple", "luxray",
+    "abomasnow", "dachsbun", "spidops", "squawkabilly", "granbull",
+    "banette", "samurott", "rotom-frost", "sudowoodo",
+]
 
-# Pokémon legal in Pokémon Champions Regulation M-A and M-B.
-# Mega evolutions are grouped with their base form (one entry per species).
-# Includes all evolution stages that appear in the official legal lists.
+PU_POKEMON = [
+    "carbink", "probopass", "zangoose", "regirock", "regice", "regigigas",
+    "wigglytuff", "dodrio", "electivire", "eelektross", "gogoat",
+    "masquerain", "whiscash", "magmortar", "spiritomb", "houndoom",
+    "glaceon", "swanna", "leavanny", "bellossom", "tauros", "dusclops",
+]
+
+# Pokemon Champions Regulation M-A and M-B legal species
 CHAMPIONS_POKEMON = [
     # Gen 1
     "venusaur", "charizard", "blastoise", "beedrill", "pidgeot", "arbok",
@@ -144,8 +139,38 @@ CHAMPIONS_POKEMON = [
     "houndstone", "annihilape", "gholdengo", "sinistcha", "hydrapple",
 ]
 
+# All legendary and mythical species (for include_legendaries filtering)
+LEGENDARIES = {
+    "articuno", "zapdos", "moltres", "mewtwo", "mew",
+    "raikou", "entei", "suicune", "lugia", "ho-oh", "celebi",
+    "regirock", "regice", "registeel", "latias", "latios",
+    "kyogre", "groudon", "rayquaza", "jirachi", "deoxys", "deoxys-speed",
+    "uxie", "mesprit", "azelf", "dialga", "palkia", "heatran",
+    "regigigas", "giratina", "cresselia", "phione", "manaphy",
+    "darkrai", "shaymin", "arceus",
+    "victini", "cobalion", "terrakion", "virizion", "tornadus", "thundurus",
+    "reshiram", "zekrom", "landorus", "kyurem", "keldeo", "meloetta", "genesect",
+    "tornadus-therian", "thundurus-therian", "landorus-therian",
+    "xerneas", "yveltal", "zygarde", "diancie", "hoopa", "volcanion",
+    "tapu-koko", "tapu-lele", "tapu-bulu", "tapu-fini",
+    "solgaleo", "lunala", "nihilego", "buzzwole", "pheromosa",
+    "xurkitree", "celesteela", "kartana", "guzzlord", "necrozma",
+    "magearna", "marshadow", "naganadel", "stakataka", "blacephalon", "zeraora",
+    "zacian", "zamazenta", "eternatus", "zarude",
+    "regieleki", "regidrago", "glastrier", "spectrier", "calyrex",
+    "enamorus", "enamorus-therian",
+    "wo-chien", "chien-pao", "ting-lu", "chi-yu", "koraidon", "miraidon",
+    "walking-wake", "iron-leaves", "gouging-fire", "raging-bolt",
+    "iron-boulder", "iron-crown", "ogerpon", "terapagos", "pecharunt",
+    "okidogi", "munkidori", "fezandipiti",
+    "great-tusk", "scream-tail", "brute-bonnet", "flutter-mane",
+    "slither-wing", "sandy-shocks", "iron-treads", "iron-bundle",
+    "iron-hands", "iron-jugulis", "iron-moth", "iron-thorns",
+    "roaring-moon", "iron-valiant",
+    "articuno-galar", "zapdos-galar", "moltres-galar",
+}
+
 ACHIEVEMENTS = [
-    # Win milestones (every 5 wins)
     "Win 5 battles",
     "Win 10 battles",
     "Win 15 battles",
@@ -156,26 +181,20 @@ ACHIEVEMENTS = [
     "Win 40 battles",
     "Win 45 battles",
     "Win 50 battles",
-    # Team composition
     "Win a battle without any of your Pokemon fainting",
     "Win with 3 or fewer Pokemon sent out",
     "Win a battle using 6 different Pokemon",
-    # Solo sweeps
     "Win a battle with one Pokemon getting 3 KOs",
     "Win a battle with one Pokemon getting 4 KOs",
-    # Speed
     "Win a battle in 10 turns or fewer",
     "Win a battle in 12 turns or fewer",
     "Win a battle in 14 turns or fewer",
     "Win a battle in 16 turns or fewer",
     "Win a battle in 18 turns or fewer",
-    # Streaks
     "Win 2 battles in a row",
     "Win 3 battles in a row",
-    # Special
     "One-hit KO a Pokemon",
     "Deal 69% damage in one hit",
-    # Move-based
     "Win a battle using Trick Room",
     "Win a battle using Tailwind",
     "Win a battle using Fake Out",

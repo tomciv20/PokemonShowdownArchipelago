@@ -8,8 +8,8 @@ from .items import (item_name, nature_item_name, popular_item_name,
 from .locations import (location_name, get_location_table, get_achievement_location_table,
                         LOCATION_ID_BASE, ACHIEVEMENT_LOCATION_BASE)
 from .options import ShowdownOptions
-from .pokemon_data import (STANDARD_POKEMON, LEGENDARY_POKEMON, MYTHICAL_POKEMON,
-                            CHAMPIONS_POKEMON, NATURES, POPULAR_ITEMS, ACHIEVEMENTS)
+from .pokemon_data import (OU_POKEMON, UU_POKEMON, RU_POKEMON, NU_POKEMON, PU_POKEMON,
+                            CHAMPIONS_POKEMON, LEGENDARIES, NATURES, POPULAR_ITEMS, ACHIEVEMENTS)
 
 
 class ShowdownItem(Item):
@@ -43,7 +43,8 @@ class ShowdownWorld(World):
     def _load_tables(cls):
         cls.item_name_to_id = get_full_item_table()
         seen, full = set(), []
-        for s in STANDARD_POKEMON + LEGENDARY_POKEMON + MYTHICAL_POKEMON + CHAMPIONS_POKEMON:
+        all_lists = OU_POKEMON + UU_POKEMON + RU_POKEMON + NU_POKEMON + PU_POKEMON + CHAMPIONS_POKEMON
+        for s in all_lists:
             if s not in seen:
                 seen.add(s)
                 full.append(s)
@@ -53,7 +54,6 @@ class ShowdownWorld(World):
         }
 
     def _build_species_pool(self) -> List[str]:
-        source = self.options.pool_source.value
         seen, pool = set(), []
 
         def add(lst):
@@ -62,14 +62,21 @@ class ShowdownWorld(World):
                     seen.add(s)
                     pool.append(s)
 
-        if source in (0, 2):
-            add(STANDARD_POKEMON)
-            if self.options.include_legendaries:
-                add(LEGENDARY_POKEMON)
-            if self.options.include_mythicals:
-                add(MYTHICAL_POKEMON)
-        if source in (1, 2):
+        if self.options.include_ou:
+            add(OU_POKEMON)
+        if self.options.include_uu:
+            add(UU_POKEMON)
+        if self.options.include_ru:
+            add(RU_POKEMON)
+        if self.options.include_nu:
+            add(NU_POKEMON)
+        if self.options.include_pu:
+            add(PU_POKEMON)
+        if self.options.include_champions:
             add(CHAMPIONS_POKEMON)
+
+        if not self.options.include_legendaries:
+            pool = [p for p in pool if p not in LEGENDARIES]
 
         size = min(self.options.pool_size.value, len(pool))
         return self.random.sample(pool, size)
