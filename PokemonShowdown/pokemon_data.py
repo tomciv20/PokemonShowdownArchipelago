@@ -86,18 +86,20 @@ PU_POKEMON = [
     "glaceon", "swanna", "leavanny", "bellossom", "tauros", "dusclops",
 ]
 
-# Pokemon Champions Regulation M-A and M-B legal species
+# Pokemon Champions Regulation M-B legal species (224 total)
 CHAMPIONS_POKEMON = [
     # Gen 1
     "venusaur", "charizard", "blastoise", "beedrill", "pidgeot", "arbok",
-    "pikachu", "raichu", "clefable", "ninetales", "arcanine", "alakazam",
-    "machamp", "victreebel", "slowbro", "gengar", "kangaskhan", "starmie",
-    "pinsir", "tauros", "gyarados", "ditto", "vaporeon", "jolteon",
-    "flareon", "aerodactyl", "snorlax", "dragonite",
+    "pikachu", "raichu", "raichu-alola", "clefable", "ninetales", "ninetales-alola",
+    "arcanine", "alakazam", "machamp", "victreebel", "slowbro", "slowbro-galar",
+    "gengar", "kangaskhan", "starmie", "pinsir", "tauros",
+    "tauros-paldea-combat", "tauros-paldea-blaze", "tauros-paldea-aqua",
+    "gyarados", "ditto", "vaporeon", "jolteon", "flareon", "aerodactyl",
+    "snorlax", "dragonite",
     # Gen 2
     "meganium", "typhlosion", "feraligatr", "ariados", "ampharos",
-    "azumarill", "politoed", "espeon", "umbreon", "slowking", "forretress",
-    "steelix", "scizor", "heracross", "skarmory", "houndoom", "tyranitar",
+    "azumarill", "politoed", "espeon", "umbreon", "slowking", "slowking-galar",
+    "forretress", "steelix", "scizor", "heracross", "skarmory", "houndoom", "tyranitar",
     # Gen 3
     "sceptile", "blaziken", "swampert", "pelipper", "gardevoir", "sableye",
     "mawile", "aggron", "medicham", "manectric", "sharpedo", "camerupt",
@@ -110,13 +112,13 @@ CHAMPIONS_POKEMON = [
     "glaceon", "gliscor", "mamoswine", "gallade", "froslass", "rotom",
     # Gen 5
     "serperior", "emboar", "samurott", "watchog", "liepard", "simisage",
-    "simisear", "simipour", "musharna", "scolipede", "whimsicott",
-    "krookodile", "scrafty", "cofagrigus", "zoroark", "reuniclus",
+    "simisear", "simipour", "musharna", "excadrill", "audino", "scolipede",
+    "whimsicott", "krookodile", "scrafty", "cofagrigus", "zoroark", "reuniclus",
     "vanilluxe", "eelektross", "emolga", "chandelure", "beartic", "stunfisk",
-    "golurk", "hydreigon", "volcarona", "audino", "conkeldurr", "garbodor",
+    "stunfisk-galar", "golurk", "hydreigon", "volcarona", "conkeldurr", "garbodor",
     # Gen 6
     "chesnaught", "delphox", "greninja", "diggersby", "talonflame",
-    "vivillon", "florges", "pangoro", "furfrou", "meowstic",
+    "vivillon", "floette", "florges", "pangoro", "furfrou", "meowstic",
     "aegislash", "aromatisse", "slurpuff", "dragalge", "malamar",
     "barbaracle", "clawitzer", "heliolisk", "tyrantrum", "aurorus",
     "sylveon", "hawlucha", "dedenne", "goodra", "klefki", "trevenant",
@@ -132,6 +134,8 @@ CHAMPIONS_POKEMON = [
     "morpeko", "dragapult", "overqwil", "archaludon",
     # Hisui
     "wyrdeer", "kleavor", "basculegion", "sneasler",
+    "arcanine-hisui", "typhlosion-hisui", "samurott-hisui", "zoroark-hisui",
+    "goodra-hisui", "avalugg-hisui", "decidueye-hisui",
     # Gen 9
     "meowscarada", "skeledirge", "quaquaval", "maushold", "garganacl",
     "armarouge", "ceruledge", "bellibolt", "scovillain", "espathra",

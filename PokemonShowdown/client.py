@@ -63,6 +63,8 @@ _FORME_MAP = {
     "lycanroc-midnight": "lycanroc", "lycanroc-dusk": "lycanroc",
     "toxtricity-low-key": "toxtricity",
     "indeedee-f": "indeedee",
+    "meowstic-f": "meowstic",
+    "basculegion-f": "basculegion",
     "morpeko-hangry": "morpeko",
     "eiscue-noice": "eiscue",
     "gourgeist-small": "gourgeist", "gourgeist-large": "gourgeist", "gourgeist-super": "gourgeist",
