@@ -22,6 +22,7 @@
 
 # Your name in-game, limited to 16 characters.
 # This should match your Pokémon Showdown username exactly.
+# Use /showdown_name in the client if your Showdown username differs from your slot name.
 #     {player} will be replaced with the player's slot number.
 #     {PLAYER} will be replaced with the player's slot number, if that slot number is greater than 1.
 #     {number} will be replaced with the counter value of the name.
@@ -71,7 +72,7 @@ Pokemon Showdown:
 
   goal_percentage:
     # Percentage of your Pokémon pool you need to win a battle with to complete your goal.
-    # Example: a pool of 100 Pokémon with goal 80% means you need to win with 80 unique species.
+    # Example: a pool of 50 Pokémon with goal 80% means you need to win with 40 unique species.
     #
     # Minimum value is 10
     # Maximum value is 100
@@ -82,50 +83,72 @@ Pokemon Showdown:
 
   pool_size:
     # How many Pokémon species are included in your pool.
-    # The pool is drawn randomly from all enabled groups.
+    # The pool is drawn randomly from all enabled tiers.
     # Enabling natures or popular items does not reduce your species count — those bonus items
     # fill filler slots first, and overflow into extra achievement locations.
     #
-    # Minimum value is 40
+    # Minimum value is 10
     # Maximum value is 450
-    150: 50
+    50: 50
     random: 0
     random-low: 0  # random value weighted towards lower values
     random-high: 0 # random value weighted towards higher values
 
-  pool_source:
-    # Which Pokémon to draw from for your species pool.
-    #
-    # gen9_ou:           Gen 9 OU-legal fully evolved Pokémon (Paldea dex, not Uber/AG).
-    #                    Legendaries and mythicals controlled by the options below.
-    # pokemon_champions: Pokémon Champions Regulation M-A + M-B legal species.
-    #                    Includes cross-generation Pokémon for use in Champions formats.
-    # both:              Combined pool from both sources (largest possible pool).
-    gen9_ou: 50
-    pokemon_champions: 0
-    both: 0
+  ################
+  # Tier Options #
+  ################
+  # At least one tier (or Champions) must be enabled.
+  # Pokemon are drawn from all enabled tiers combined.
 
-  include_legendaries:
-    # Include legendary Pokémon (e.g. Raikou, Landorus, Spectrier) in the gen9_ou pool.
-    # Has no effect if pool_source is pokemon_champions.
+  include_ou:
+    # Include Gen 9 OU-tier Pokémon in the pool.
+    # The strongest standard competitive tier (e.g. Kingambit, Gholdengo, Dragapult).
     'true': 50
     'false': 0
 
-  include_mythicals:
-    # Include mythical Pokémon (e.g. Mew, Jirachi, Darkrai) in the gen9_ou pool.
-    # Has no effect if pool_source is pokemon_champions.
+  include_uu:
+    # Include Gen 9 UU-tier Pokémon in the pool.
+    # One step below OU (e.g. Gyarados, Weavile, Greninja).
     'true': 0
     'false': 50
 
+  include_ru:
+    # Include Gen 9 RU-tier Pokémon in the pool.
+    # Two steps below OU (e.g. Altaria, Zoroark, Decidueye-Hisui).
+    'true': 0
+    'false': 50
+
+  include_nu:
+    # Include Gen 9 NU-tier Pokémon in the pool.
+    # Three steps below OU (e.g. Luxray, Malamar, Morpeko).
+    'true': 0
+    'false': 50
+
+  include_pu:
+    # Include Gen 9 PU-tier Pokémon in the pool.
+    # Lowest standard tier (e.g. Houndoom, Spiritomb, Glaceon).
+    'true': 0
+    'false': 50
+
+  include_champions:
+    # Include Pokémon Champions Regulation M-B legal species in the pool.
+    # A cross-generation VGC-adjacent format with ~224 legal species including
+    # regional formes (e.g. Garchomp, Incineroar, Raichu-Alola, Decidueye-Hisui).
+    'true': 0
+    'false': 50
+
+  ################
+  # Bonus Items  #
+  ################
   include_natures:
     # Add all 25 natures as unlock items in the item pool.
     # You start with starting_natures_count natures unlocked; the rest must be received.
-    # Honor system: only use natures you have unlocked on Pokemon you bring to battle.
+    # Honor system: only use natures you have unlocked on Pokémon you bring to battle.
     #
     # How overflow works: natures (and popular items below) first replace filler slots in your
     # item pool. If there are more bonus items than filler slots, extra achievement-style goals
     # are added as new locations — things like "Win 10 battles", "One-hit KO a Pokemon", or
-    # "Win a battle using Stealth Rock". These are chosen randomly each seed from a pool of 43
+    # "Win a battle using Stealth Rock". These are chosen randomly each seed from a pool of
     # possible achievements and are tracked automatically by the client when you submit replays.
     'true': 0
     'false': 50
@@ -152,6 +175,9 @@ Pokemon Showdown:
     'true': 0
     'false': 50
 
+  ###################
+  # Replay Settings #
+  ###################
   require_send_out:
     # If enabled, a Pokémon must have been switched into battle to count as a check.
     # Pokémon that were on your team sheet but never sent out are skipped.
