@@ -1,0 +1,43 @@
+name: YourName
+
+game: Pokemon Showdown
+
+description: >
+  Win battles on Pokemon Showdown using unlocked Pokemon to send checks to other players.
+  Receive Pokemon unlocks from other players as your rewards.
+
+Pokemon Showdown:
+  # How many Pokemon species are randomly selected for your pool.
+  pool_size: 50
+
+  # Percentage of your pool you need to win with to complete your goal.
+  goal_percentage: 80
+
+  # How many Pokemon you start with already unlocked.
+  starting_pokemon_count: 6
+
+  # Which tiers to draw your Pokemon pool from (at least one must be enabled).
+  # OU = top competitive tier; PU = lowest standard tier.
+  include_ou: true
+  include_uu: false
+  include_ru: false
+  include_nu: false
+  include_pu: false
+
+  # Include Pokemon legal in the Pokemon Champions Regulation M-B format.
+  include_champions: false
+
+  # Add all 25 natures as unlock items (honor system: only use unlocked natures).
+  include_natures: false
+
+  # How many natures you start with unlocked (only applies if include_natures is on).
+  starting_natures_count: 1
+
+  # Add popular competitive items as unlock items (honor system: only use unlocked items).
+  include_popular_items: false
+
+  # If enabled, a Pokemon must have been switched into battle to count as a check.
+  require_send_out: false
+
+  # If enabled, you must get at least one KO with a Pokemon to check it off.
+  require_kill: false
