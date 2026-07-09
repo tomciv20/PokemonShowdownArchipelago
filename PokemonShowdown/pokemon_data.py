@@ -139,37 +139,6 @@ CHAMPIONS_POKEMON = [
     "houndstone", "annihilape", "gholdengo", "sinistcha", "hydrapple",
 ]
 
-# All legendary and mythical species (for include_legendaries filtering)
-LEGENDARIES = {
-    "articuno", "zapdos", "moltres", "mewtwo", "mew",
-    "raikou", "entei", "suicune", "lugia", "ho-oh", "celebi",
-    "regirock", "regice", "registeel", "latias", "latios",
-    "kyogre", "groudon", "rayquaza", "jirachi", "deoxys", "deoxys-speed",
-    "uxie", "mesprit", "azelf", "dialga", "palkia", "heatran",
-    "regigigas", "giratina", "cresselia", "phione", "manaphy",
-    "darkrai", "shaymin", "arceus",
-    "victini", "cobalion", "terrakion", "virizion", "tornadus", "thundurus",
-    "reshiram", "zekrom", "landorus", "kyurem", "keldeo", "meloetta", "genesect",
-    "tornadus-therian", "thundurus-therian", "landorus-therian",
-    "xerneas", "yveltal", "zygarde", "diancie", "hoopa", "volcanion",
-    "tapu-koko", "tapu-lele", "tapu-bulu", "tapu-fini",
-    "solgaleo", "lunala", "nihilego", "buzzwole", "pheromosa",
-    "xurkitree", "celesteela", "kartana", "guzzlord", "necrozma",
-    "magearna", "marshadow", "naganadel", "stakataka", "blacephalon", "zeraora",
-    "zacian", "zamazenta", "eternatus", "zarude",
-    "regieleki", "regidrago", "glastrier", "spectrier", "calyrex",
-    "enamorus", "enamorus-therian",
-    "wo-chien", "chien-pao", "ting-lu", "chi-yu", "koraidon", "miraidon",
-    "walking-wake", "iron-leaves", "gouging-fire", "raging-bolt",
-    "iron-boulder", "iron-crown", "ogerpon", "terapagos", "pecharunt",
-    "okidogi", "munkidori", "fezandipiti",
-    "great-tusk", "scream-tail", "brute-bonnet", "flutter-mane",
-    "slither-wing", "sandy-shocks", "iron-treads", "iron-bundle",
-    "iron-hands", "iron-jugulis", "iron-moth", "iron-thorns",
-    "roaring-moon", "iron-valiant",
-    "articuno-galar", "zapdos-galar", "moltres-galar",
-}
-
 ACHIEVEMENTS = [
     "Win 5 battles",
     "Win 10 battles",

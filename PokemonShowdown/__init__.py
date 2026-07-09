@@ -9,7 +9,7 @@ from .locations import (location_name, get_location_table, get_achievement_locat
                         LOCATION_ID_BASE, ACHIEVEMENT_LOCATION_BASE)
 from .options import ShowdownOptions
 from .pokemon_data import (OU_POKEMON, UU_POKEMON, RU_POKEMON, NU_POKEMON, PU_POKEMON,
-                            CHAMPIONS_POKEMON, LEGENDARIES, NATURES, POPULAR_ITEMS, ACHIEVEMENTS)
+                            CHAMPIONS_POKEMON, NATURES, POPULAR_ITEMS, ACHIEVEMENTS)
 
 
 class ShowdownItem(Item):
@@ -74,9 +74,6 @@ class ShowdownWorld(World):
             add(PU_POKEMON)
         if self.options.include_champions:
             add(CHAMPIONS_POKEMON)
-
-        if not self.options.include_legendaries:
-            pool = [p for p in pool if p not in LEGENDARIES]
 
         size = min(self.options.pool_size.value, len(pool))
         return self.random.sample(pool, size)

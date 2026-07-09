@@ -62,12 +62,6 @@ class IncludeChampions(Toggle):
     default = 0
 
 
-class IncludeLegendaries(Toggle):
-    """Include legendary and mythical Pokémon from the enabled tiers."""
-    display_name = "Include Legendaries"
-    default = 1
-
-
 class IncludeNatures(Toggle):
     """Add all 25 natures as unlock items. You must use only unlocked natures (honor system)."""
     display_name = "Include Natures"
@@ -111,7 +105,6 @@ class ShowdownOptions(PerGameCommonOptions):
     include_nu: IncludeNU
     include_pu: IncludePU
     include_champions: IncludeChampions
-    include_legendaries: IncludeLegendaries
     include_natures: IncludeNatures
     starting_natures_count: StartingNaturesCount
     include_popular_items: IncludePopularItems
