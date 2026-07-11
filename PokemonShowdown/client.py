@@ -98,12 +98,13 @@ def _loc_name(species: str) -> str:
 
 
 def _parse_hp_field(hp_field: str):
-    """Return (current, max) from '150/300' or '0 fnt' or '150/300 brn'. max is None for faint."""
+    """Return (current, max) from '150/300' or '0 fnt' or '150/300 brn'. max is None for faint.
+    Handles Tera suffix 'g' appended by Showdown (e.g. '100g/350g')."""
     token = hp_field.split()[0]
     if "/" in token:
         cur, mx = token.split("/")
-        return int(cur), int(mx)
-    return int(token), None
+        return int(re.sub(r"[^\d]", "", cur)), int(re.sub(r"[^\d]", "", mx))
+    return int(re.sub(r"[^\d]", "", token)), None
 
 
 class ShowdownCommandProcessor(ClientCommandProcessor):
