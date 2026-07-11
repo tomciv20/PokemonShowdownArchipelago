@@ -23,9 +23,10 @@ FILLER_ITEMS = {"Bonus PP": ITEM_ID_BASE - 1}
 
 
 def get_full_item_table() -> Dict[str, int]:
-    from .pokemon_data import ALL_POKEMON, CHAMPIONS_POKEMON, NATURES, POPULAR_ITEMS
+    from .pokemon_data import (OU_POKEMON, UU_POKEMON, RU_POKEMON, NU_POKEMON, PU_POKEMON,
+                               CHAMPIONS_POKEMON, NATURES, POPULAR_ITEMS)
     seen, full = set(), []
-    for s in ALL_POKEMON + CHAMPIONS_POKEMON:
+    for s in OU_POKEMON + UU_POKEMON + RU_POKEMON + NU_POKEMON + PU_POKEMON + CHAMPIONS_POKEMON:
         if s not in seen:
             seen.add(s)
             full.append(s)
