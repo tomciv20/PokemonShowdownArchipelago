@@ -65,6 +65,7 @@ _FORME_MAP = {
     "indeedee-f": "indeedee",
     "meowstic-f": "meowstic",
     "basculegion-f": "basculegion",
+    "floette-eternal": "floette",
     "morpeko-hangry": "morpeko",
     "eiscue-noice": "eiscue",
     "gourgeist-small": "gourgeist", "gourgeist-large": "gourgeist", "gourgeist-super": "gourgeist",
