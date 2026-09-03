@@ -84,7 +84,7 @@ _FORME_MAP = {
 
 
 def _normalize(raw: str) -> str:
-    key = raw.strip().lower().replace(" ", "-")
+    key = raw.strip().lower().replace(" ", "-").replace(".", "").replace("'", "")
     if key.endswith("-*"):
         key = key[:-2]
     for suffix in ("-mega-x", "-mega-y", "-mega", "-primal", "-gmax"):
