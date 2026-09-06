@@ -94,6 +94,20 @@ def _normalize(raw: str) -> str:
     return _FORME_MAP.get(key, key)
 
 
+def _resolve(raw: str, pool: set) -> str:
+    """Normalize a species name, preferring the specific forme if it's in the pool."""
+    key = raw.strip().lower().replace(" ", "-").replace(".", "").replace("'", "")
+    if key.endswith("-*"):
+        key = key[:-2]
+    for suffix in ("-mega-x", "-mega-y", "-mega", "-primal", "-gmax"):
+        if key.endswith(suffix):
+            key = key[:-len(suffix)]
+            break
+    if key in pool:
+        return key
+    return _FORME_MAP.get(key, key)
+
+
 def _loc_name(species: str) -> str:
     return "Win with " + species.replace("-", " ").title()
 
@@ -204,6 +218,7 @@ class ShowdownContext(CommonContext):
         self.unlocked: set = set()
         self.unlocked_natures: set = set()
         self.unlocked_items: set = set()
+        self.pool: set = set()
         self.won: set = set()
         self.showdown_name: str | None = None
         self.goal_count: int = 0
@@ -231,6 +246,7 @@ class ShowdownContext(CommonContext):
             self.require_send_out = slot_data.get("require_send_out", False)
             self.require_kill = slot_data.get("require_kill", False)
             self.active_achievements = slot_data.get("active_achievements", {})
+            self.pool = set(slot_data.get("species_pool", []))
             for loc_id in args.get("checked_locations", []):
                 name = _LOC_ID_TO_NAME.get(loc_id, "")
                 if name.startswith("Win with "):
@@ -265,7 +281,7 @@ class ShowdownContext(CommonContext):
                             self.unlocked_items.add(as_item_key)
                             logger.info(f"Unlocked item: {payload}")
                     else:
-                        normalized = _normalize(payload)
+                        normalized = _resolve(payload, self.pool)
                         if normalized not in self.unlocked:
                             self.unlocked.add(normalized)
                             logger.info(f"Unlocked: {name}")
@@ -489,11 +505,11 @@ class ShowdownContext(CommonContext):
                 turn_count += 1
 
             elif cmd == "poke" and len(parts) >= 4 and parts[2] == my_side:
-                team.add(_normalize(parts[3].split(",")[0]))
+                team.add(_resolve(parts[3].split(",")[0], self.pool))
 
             elif cmd == "switch" and len(parts) >= 5:
                 slot = parts[2].split(":")[0]
-                species = _normalize(parts[3].split(",")[0])
+                species = _resolve(parts[3].split(",")[0], self.pool)
                 if slot.startswith(my_side):
                     team.add(species)
                     sent_out.add(species)
