@@ -88,13 +88,14 @@ PU_POKEMON = [
     "glaceon", "swanna", "leavanny", "bellossom", "tauros", "dusclops",
 ]
 
-# Pokemon Champions Regulation M-B legal species (224 total)
+# Pokemon Champions Regulation M-C legal species (247 total)
 CHAMPIONS_POKEMON = [
     # Gen 1
     "venusaur", "charizard", "blastoise", "beedrill", "pidgeot", "arbok",
     "pikachu", "raichu", "raichu-alola", "clefable", "ninetales", "ninetales-alola",
+    "wigglytuff", "persian", "persian-alola",
     "arcanine", "alakazam", "machamp", "victreebel", "slowbro", "slowbro-galar",
-    "gengar", "kangaskhan", "starmie", "pinsir", "tauros",
+    "farfetchd", "gengar", "kangaskhan", "starmie", "mr-mime", "pinsir", "tauros",
     "tauros-paldea-combat", "tauros-paldea-blaze", "tauros-paldea-aqua",
     "gyarados", "ditto", "vaporeon", "jolteon", "flareon", "aerodactyl",
     "snorlax", "dragonite",
@@ -106,7 +107,7 @@ CHAMPIONS_POKEMON = [
     "sceptile", "blaziken", "swampert", "pelipper", "gardevoir", "sableye",
     "mawile", "aggron", "medicham", "manectric", "sharpedo", "camerupt",
     "torkoal", "altaria", "milotic", "castform", "banette", "chimecho",
-    "absol", "glalie", "metagross", "vileplume", "qwilfish",
+    "absol", "glalie", "salamence", "metagross", "swalot", "vileplume", "qwilfish",
     # Gen 4
     "torterra", "infernape", "empoleon", "staraptor", "luxray", "roserade",
     "rampardos", "bastiodon", "lopunny", "spiritomb", "garchomp", "lucario",
@@ -123,26 +124,30 @@ CHAMPIONS_POKEMON = [
     "vivillon", "floette", "florges", "pangoro", "furfrou", "meowstic",
     "aegislash", "aromatisse", "slurpuff", "dragalge", "malamar",
     "barbaracle", "clawitzer", "heliolisk", "tyrantrum", "aurorus",
-    "sylveon", "hawlucha", "dedenne", "goodra", "klefki", "trevenant",
+    "sylveon", "hawlucha", "dedenne", "gogoat", "goodra", "klefki", "trevenant",
     "gourgeist", "avalugg", "noivern",
     # Gen 7
     "decidueye", "incineroar", "primarina", "toucannon", "crabominable",
     "lycanroc", "toxapex", "mudsdale", "araquanid", "salazzle", "tsareena",
-    "oranguru", "passimian", "mimikyu", "drampa", "kommo-o", "pyroar",
+    "oranguru", "passimian", "golisopod", "mimikyu", "drampa", "kommo-o", "pyroar",
     "falinks",
     # Gen 8
-    "corviknight", "flapple", "appletun", "sandaconda", "polteageist",
-    "hatterene", "grimmsnarl", "mr-rime", "runerigus", "alcremie",
-    "morpeko", "dragapult", "overqwil", "archaludon",
+    "rillaboom", "cinderace", "inteleon", "corviknight", "thievul",
+    "flapple", "appletun", "sandaconda", "toxtricity", "grapploct",
+    "polteageist", "hatterene", "grimmsnarl", "perrserker", "sirfetchd",
+    "mr-rime", "runerigus", "alcremie", "pincurchin",
+    "indeedee", "morpeko", "dragapult", "overqwil",
     # Hisui
     "wyrdeer", "kleavor", "basculegion", "sneasler",
     "arcanine-hisui", "typhlosion-hisui", "samurott-hisui", "zoroark-hisui",
     "goodra-hisui", "avalugg-hisui", "decidueye-hisui",
     # Gen 9
-    "meowscarada", "skeledirge", "quaquaval", "maushold", "garganacl",
-    "armarouge", "ceruledge", "bellibolt", "scovillain", "espathra",
-    "tinkaton", "palafin", "orthworm", "glimmora", "farigiraf", "kingambit",
-    "houndstone", "annihilape", "gholdengo", "sinistcha", "hydrapple",
+    "meowscarada", "skeledirge", "quaquaval", "pawmot", "maushold",
+    "arboliva", "squawkabilly", "garganacl", "armarouge", "ceruledge",
+    "bellibolt", "mabosstiff", "scovillain", "espathra", "tinkaton",
+    "palafin", "orthworm", "glimmora", "houndstone", "annihilape",
+    "farigiraf", "kingambit", "baxcalibur", "gholdengo", "sinistcha",
+    "archaludon", "hydrapple",
 ]
 
 ACHIEVEMENTS = [
