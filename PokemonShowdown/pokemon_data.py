@@ -1,16 +1,17 @@
 # Smogon Gen 9 SV competitive tiers - July 2026
 # Fully evolved (or competitively used) Pokemon only.
-# Names: lowercase, hyphens for spaces. Formes kept where competitively distinct.
-# NFE excluded except competitively-used ones (chansey, porygon2, scyther).
+# Names: lowercase, hyphens for spaces. One entry per species — no forme suffixes
+# (therian, rotom variants, etc.). Regional variants (alola/galar/hisui/paldea) kept
+# as separate species. NFE excluded except chansey, porygon2, scyther.
 
 OU_POKEMON = [
     # Core OU
     "great-tusk", "gholdengo", "kingambit", "zamazenta", "dragonite",
     "iron-valiant", "kyurem", "raging-bolt", "hatterene", "ting-lu",
     "samurott-hisui", "iron-treads", "slowking-galar", "dragapult", "gliscor",
-    "corviknight", "pecharunt", "cinderace", "landorus-therian", "alomomola",
+    "corviknight", "pecharunt", "cinderace", "landorus", "alomomola",
     "glimmora", "darkrai", "iron-moth", "ceruledge", "walking-wake",
-    "deoxys-speed", "rillaboom", "zapdos", "tornadus-therian", "clefable",
+    "deoxys-speed", "rillaboom", "zapdos", "clefable",
     "dondozo", "enamorus", "weezing-galar", "moltres", "garganacl",
     "garchomp", "ogerpon", "primarina", "iron-crown",
     # UUBL (banned from UU, OU-adjacent in power)
@@ -20,11 +21,11 @@ OU_POKEMON = [
 UU_POKEMON = [
     "latios", "excadrill", "mandibuzz", "lokix", "weavile", "arcanine-hisui",
     "skarmory", "donphan", "conkeldurr", "scizor", "tinkaton",
-    "thundurus-therian", "slowking", "slither-wing", "hydrapple", "keldeo",
+    "thundurus", "slowking", "slither-wing", "hydrapple", "keldeo",
     "clodsire", "skeledirge", "sinistcha", "greninja", "sandy-shocks",
-    "manaphy", "metagross", "hydreigon", "rotom-wash", "fezandipiti",
+    "manaphy", "metagross", "hydreigon", "rotom", "fezandipiti",
     "toxapex", "zapdos-galar", "revavroom", "azumarill", "gardevoir",
-    "iron-jugulis", "hippowdon", "thundurus", "talonflame", "cobalion",
+    "iron-jugulis", "hippowdon", "tornadus", "talonflame", "cobalion",
     "ninetales-alola", "mamoswine", "serperior", "blissey", "bisharp",
     "venusaur", "ninetales", "gastrodon", "mew", "forretress", "politoed",
     "salamence", "hawlucha", "lilligant-hisui", "volcanion", "magnezone",
@@ -32,20 +33,20 @@ UU_POKEMON = [
     "haxorus", "krookodile", "goodra-hisui", "yanmega", "ribombee",
     "houndstone", "armarouge", "gengar", "swampert", "kilowattrel",
     "barraskewda", "kleavor", "gyarados", "grimmsnarl", "entei",
-    "maushold", "kingdra", "scream-tail", "comfey", "basculegion-f",
-    "indeedee", "regieleki", "enamorus-therian", "muk-alola", "iron-leaves",
+    "maushold", "kingdra", "scream-tail", "comfey", "basculegion",
+    "indeedee", "regieleki", "muk-alola", "iron-leaves",
     "noivern", "floatzel", "toxtricity", "scovillain", "pawmot",
     "blastoise", "ditto", "cresselia", "mienshao", "necrozma", "sylveon",
-    "gallade", "empoleon", "basculegion", "overqwil", "tentacruel",
-    "crawdaunt", "quagsire", "lycanroc-dusk", "espeon", "umbreon",
+    "gallade", "empoleon", "overqwil", "tentacruel",
+    "crawdaunt", "quagsire", "espeon", "umbreon",
     "cyclizar", "cloyster", "porygon-z", "chesnaught", "infernape",
     "reuniclus", "chandelure", "azelf", "avalugg", "regidrago",
-    "incineroar", "slowbro", "lucario", "slowbro-galar", "oricorio-pom-pom",
+    "incineroar", "slowbro", "lucario", "slowbro-galar",
     "breloom", "raikou", "diancie", "vaporeon", "porygon2", "tornadus",
     "tauros-paldea-aqua", "vikavolt", "feraligatr", "rhyperior",
     "iron-thorns", "terrakion", "snorlax", "suicune", "golurk",
     "klefki", "charizard", "brambleghast", "toxicroak", "tsareena",
-    "galvantula", "vileplume", "whimsicott", "torterra", "rotom-heat",
+    "galvantula", "vileplume", "whimsicott", "torterra",
     "staraptor", "typhlosion-hisui", "glastrier", "scrafty", "inteleon",
     "salazzle", "milotic", "chansey", "heracross", "bruxish", "amoonguss",
     "registeel", "hoopa", "sableye", "frosmoth", "goodra", "arcanine",
@@ -70,13 +71,13 @@ RU_POKEMON = [
 
 NU_POKEMON = [
     "copperajah", "orthworm", "farigiraf", "skuntank", "coalossal",
-    "perrserker", "muk", "veluza", "rotom-fan", "rabsca",
+    "perrserker", "muk", "veluza", "rabsca",
     "morpeko", "komala", "beartic", "mabosstiff", "crabominable",
     "venomoth", "bombirdier", "persian-alola", "lurantis", "qwilfish-hisui",
     "falinks", "cacturne", "greedent", "ursaring", "klawf",
     "malamar", "passimian", "appletun", "flapple", "luxray",
     "abomasnow", "dachsbun", "spidops", "squawkabilly", "granbull",
-    "banette", "samurott", "rotom-frost", "sudowoodo",
+    "banette", "samurott", "sudowoodo",
 ]
 
 PU_POKEMON = [
