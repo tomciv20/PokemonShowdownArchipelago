@@ -25,7 +25,7 @@ UU_POKEMON = [
     "clodsire", "skeledirge", "sinistcha", "greninja", "sandy-shocks",
     "manaphy", "metagross", "hydreigon", "rotom", "fezandipiti",
     "toxapex", "zapdos-galar", "revavroom", "azumarill", "gardevoir",
-    "iron-jugulis", "hippowdon", "tornadus", "talonflame", "cobalion",
+    "iron-jugulis", "hippowdon", "talonflame", "cobalion",
     "ninetales-alola", "mamoswine", "serperior", "blissey", "bisharp",
     "venusaur", "ninetales", "gastrodon", "mew", "forretress", "politoed",
     "salamence", "hawlucha", "lilligant-hisui", "volcanion", "magnezone",
