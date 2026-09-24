@@ -15,7 +15,8 @@ OU_POKEMON = [
     "dondozo", "enamorus", "weezing-galar", "moltres", "garganacl",
     "garchomp", "ogerpon", "primarina", "iron-crown",
     # UUBL (banned from UU, OU-adjacent in power)
-    "heatran", "tyranitar",
+    "heatran", "tyranitar", "iron-hands", "iron-boulder",
+    "moltres-galar", "ursaluna", "meowscarada", "quaquaval", "latias",
 ]
 
 UU_POKEMON = [
