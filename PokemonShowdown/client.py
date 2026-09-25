@@ -142,6 +142,18 @@ class ShowdownCommandProcessor(ClientCommandProcessor):
         else:
             self.output("No Pokemon unlocked yet.")
 
+    def _cmd_remaining(self) -> None:
+        """List unlocked Pokemon you haven't won with yet."""
+        ctx = self.ctx
+        remaining = sorted(ctx.unlocked - ctx.won)
+        if not remaining:
+            if ctx.unlocked:
+                self.output("You've won with all your unlocked Pokemon!")
+            else:
+                self.output("No Pokemon unlocked yet.")
+        else:
+            self.output(f"Remaining ({len(remaining)}): {', '.join(remaining)}")
+
     def _cmd_natures(self) -> None:
         """List all currently unlocked natures."""
         from .pokemon_data import NATURES
