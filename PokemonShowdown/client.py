@@ -37,7 +37,8 @@ try:
 except Exception:
     ClientStatus = None  # type: ignore
 
-# Build plain-dict name tables from the World's ID tables so we don't depend on NameLookupDict.
+# Build plain-dict name tables from the World's ID tables as a LOCAL fallback only.
+# The server's DataPackage is the authoritative source; see _item_name() / _loc_name() below.
 def _build_name_tables():
     try:
         from worlds.PokemonShowdown import ShowdownWorld
@@ -48,6 +49,22 @@ def _build_name_tables():
         return {}, {}
 
 _ITEM_ID_TO_NAME, _LOC_ID_TO_NAME = _build_name_tables()
+
+
+def _item_name(ctx, item_id: int) -> str:
+    """Look up an item name using the server's DataPackage (authoritative), with local fallback."""
+    try:
+        return ctx.item_names[ctx.game][item_id]
+    except Exception:
+        return _ITEM_ID_TO_NAME.get(item_id, "")
+
+
+def _loc_name(ctx, loc_id: int) -> str:
+    """Look up a location name using the server's DataPackage (authoritative), with local fallback."""
+    try:
+        return ctx.location_names[ctx.game][loc_id]
+    except Exception:
+        return _LOC_ID_TO_NAME.get(loc_id, "")
 _LOC_NAME_TO_ID = {v: k for k, v in _LOC_ID_TO_NAME.items()}
 
 _FORME_MAP = {
@@ -264,7 +281,7 @@ class ShowdownContext(CommonContext):
             self.active_achievements = slot_data.get("active_achievements", {})
             self.pool = set(slot_data.get("species_pool", []))
             for loc_id in args.get("checked_locations", []):
-                name = _LOC_ID_TO_NAME.get(loc_id, "")
+                name = _loc_name(self, loc_id)
                 if name.startswith("Win with "):
                     self.won.add(_normalize(name[len("Win with "):]))
             # Load persistent win stats for this slot+server.
@@ -280,7 +297,7 @@ class ShowdownContext(CommonContext):
 
         elif cmd == "ReceivedItems":
             for item in args["items"]:
-                name = _ITEM_ID_TO_NAME.get(item.item, "")
+                name = _item_name(self, item.item)
                 if not name.startswith("Unlock "):
                     continue
                 payload = name[len("Unlock "):]
@@ -304,7 +321,7 @@ class ShowdownContext(CommonContext):
 
         elif cmd == "RoomUpdate":
             for loc_id in args.get("checked_locations", []):
-                name = _LOC_ID_TO_NAME.get(loc_id, "")
+                name = _loc_name(self, loc_id)
                 if name.startswith("Win with "):
                     self.won.add(_normalize(name[len("Win with "):]))
 
