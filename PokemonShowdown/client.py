@@ -51,16 +51,26 @@ def _build_name_tables():
 _ITEM_ID_TO_NAME, _LOC_ID_TO_NAME = _build_name_tables()
 
 
-def _item_name(ctx, item_id: int) -> str:
-    """Look up an item name using the server's DataPackage (authoritative), with local fallback."""
+def _sd_item_name(ctx, item_id: int) -> str:
+    """Look up an item name — server slot_data first, then DataPackage, then local fallback."""
+    sd_map = getattr(ctx, "_sd_item_id_to_name", None)
+    if sd_map:
+        name = sd_map.get(item_id)
+        if name:
+            return name
     try:
         return ctx.item_names[ctx.game][item_id]
     except Exception:
         return _ITEM_ID_TO_NAME.get(item_id, "")
 
 
-def _loc_name(ctx, loc_id: int) -> str:
-    """Look up a location name using the server's DataPackage (authoritative), with local fallback."""
+def _sd_loc_name(ctx, loc_id: int) -> str:
+    """Look up a location name — server slot_data first, then DataPackage, then local fallback."""
+    sd_map = getattr(ctx, "_sd_loc_id_to_name", None)
+    if sd_map:
+        name = sd_map.get(loc_id)
+        if name:
+            return name
     try:
         return ctx.location_names[ctx.game][loc_id]
     except Exception:
@@ -252,6 +262,8 @@ class ShowdownContext(CommonContext):
         self.unlocked_natures: set = set()
         self.unlocked_items: set = set()
         self.pool: set = set()
+        self._sd_item_id_to_name: dict = {}
+        self._sd_loc_id_to_name: dict = {}
         self.won: set = set()
         self.showdown_name: str | None = None
         self.goal_count: int = 0
@@ -280,8 +292,13 @@ class ShowdownContext(CommonContext):
             self.require_kill = slot_data.get("require_kill", False)
             self.active_achievements = slot_data.get("active_achievements", {})
             self.pool = set(slot_data.get("species_pool", []))
+            # Authoritative ID maps from the server (survive apworld version changes).
+            raw_item = slot_data.get("item_id_to_name", {})
+            self._sd_item_id_to_name = {int(k): v for k, v in raw_item.items()}
+            raw_loc = slot_data.get("loc_id_to_name", {})
+            self._sd_loc_id_to_name = {int(k): v for k, v in raw_loc.items()}
             for loc_id in args.get("checked_locations", []):
-                name = _loc_name(self, loc_id)
+                name = _sd_loc_name(self, loc_id)
                 if name.startswith("Win with "):
                     self.won.add(_normalize(name[len("Win with "):]))
             # Load persistent win stats for this slot+server.
@@ -297,7 +314,7 @@ class ShowdownContext(CommonContext):
 
         elif cmd == "ReceivedItems":
             for item in args["items"]:
-                name = _item_name(self, item.item)
+                name = _sd_item_name(self, item.item)
                 if not name.startswith("Unlock "):
                     continue
                 payload = name[len("Unlock "):]
@@ -321,7 +338,7 @@ class ShowdownContext(CommonContext):
 
         elif cmd == "RoomUpdate":
             for loc_id in args.get("checked_locations", []):
-                name = _loc_name(self, loc_id)
+                name = _sd_loc_name(self, loc_id)
                 if name.startswith("Win with "):
                     self.won.add(_normalize(name[len("Win with "):]))
 

@@ -199,9 +199,15 @@ class ShowdownWorld(World):
         goal_pct = max(1, round(len(self.species_pool) * self.options.goal_percentage.value / 100))
         goal_count = min(goal_pct, self.species_item_count)
         ach_table = get_achievement_location_table()
+        # Include authoritative ID→name maps so the client works even if the
+        # installed apworld version differs from the one used to generate this game.
+        item_id_to_name = {v: k for k, v in self.item_name_to_id.items()}
+        loc_id_to_name = {v: k for k, v in self.location_name_to_id.items()}
         return {
             "species_pool": self.species_pool,
             "goal_count": goal_count,
+            "item_id_to_name": item_id_to_name,
+            "loc_id_to_name": loc_id_to_name,
             "require_send_out": bool(self.options.require_send_out.value),
             "require_kill": bool(self.options.require_kill.value),
             "include_natures": bool(self.options.include_natures.value),
