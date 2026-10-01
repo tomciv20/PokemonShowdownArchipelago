@@ -105,6 +105,7 @@ _FORME_MAP = {
     "squawkabilly-blue": "squawkabilly", "squawkabilly-yellow": "squawkabilly",
     "squawkabilly-white": "squawkabilly",
     "palafin-hero": "palafin",
+    "keldeo-resolute": "keldeo",
     "rotom-heat": "rotom", "rotom-wash": "rotom", "rotom-frost": "rotom",
     "rotom-fan": "rotom", "rotom-mow": "rotom",
     "urshifu-rapid-strike": "urshifu-rapid-strike",
@@ -115,7 +116,7 @@ _FORME_MAP = {
 
 
 def _normalize(raw: str) -> str:
-    key = raw.strip().lower().replace(" ", "-").replace(".", "").replace("'", "")
+    key = raw.strip().lower().replace(" ", "-").replace(".", "").replace("'", "").replace("’", "")
     if key.endswith("-*"):
         key = key[:-2]
     for suffix in ("-mega-x", "-mega-y", "-mega", "-primal", "-gmax"):
@@ -127,7 +128,7 @@ def _normalize(raw: str) -> str:
 
 def _resolve(raw: str, pool: set) -> str:
     """Normalize a species name, preferring the specific forme if it's in the pool."""
-    key = raw.strip().lower().replace(" ", "-").replace(".", "").replace("'", "")
+    key = raw.strip().lower().replace(" ", "-").replace(".", "").replace("'", "").replace("’", "")
     if key.endswith("-*"):
         key = key[:-2]
     for suffix in ("-mega-x", "-mega-y", "-mega", "-primal", "-gmax"):
